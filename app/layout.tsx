@@ -1,6 +1,7 @@
 import { WhopApp } from "@whop/react/components";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -29,6 +30,18 @@ export default function RootLayout({
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
 				<WhopApp>{children}</WhopApp>
+				<Toaster
+					position="top-right"
+					richColors
+					theme="dark"
+					toastOptions={{
+						style: {
+							background: "#212121",
+							border: "1px solid #424242",
+							color: "#E0E0E0",
+						},
+					}}
+				/>
 			</body>
 		</html>
 	);
