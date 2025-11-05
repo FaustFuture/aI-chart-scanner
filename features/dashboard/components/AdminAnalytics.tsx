@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { TrendingUp, Users, BarChart3, Award } from "lucide-react";
 import type { AnalyticsData } from "../types/analytics";
 import { fetchAnalytics } from "../services/analytics";
+import { AnalyticsSkeleton } from "@/components/shared/AnalyticsSkeleton";
 
 type AdminAnalyticsProps = {
 	companyId: string;
@@ -25,11 +26,7 @@ export function AdminAnalytics({ companyId }: AdminAnalyticsProps) {
 	}, [companyId]);
 
 	if (isLoading) {
-		return (
-			<div className="p-6 bg-[#212121] rounded-lg border border-[#424242]">
-				<p className="text-[#E0E0E0]">Loading analytics...</p>
-			</div>
-		);
+		return <AnalyticsSkeleton />;
 	}
 
 	if (!analytics) {
@@ -160,10 +157,10 @@ export function AdminAnalytics({ companyId }: AdminAnalyticsProps) {
 											<div className="flex items-center gap-2">
 												<span
 													className={`px-2 py-1 rounded text-xs font-bold ${setup.direction === "BUY"
-															? "bg-[#4CAF50] text-white"
-															: setup.direction === "SELL"
-																? "bg-[#F44336] text-white"
-																: "bg-[#757575] text-white"
+														? "bg-[#4CAF50] text-white"
+														: setup.direction === "SELL"
+															? "bg-[#F44336] text-white"
+															: "bg-[#757575] text-white"
 														}`}
 												>
 													{setup.direction || "N/A"}
