@@ -207,7 +207,14 @@ export function MemberDashboard({ companyId }: MemberDashboardProps) {
 
 	return (
 		<div className="flex flex-col p-8 gap-4 min-h-screen bg-[#121212]">
-			<h1 className="text-4xl font-bold text-white">Member Dashboard</h1>
+			<div className="flex items-center gap-4">
+				<img
+					src="/logo.svg"
+					alt="Logo"
+					className="w-12 h-12"
+				/>
+				<h1 className="text-4xl font-bold text-white">Member Dashboard</h1>
+			</div>
 			<Tabs defaultValue="generate" className="w-full">
 				<TabsList>
 					<TabsTrigger value="generate">Generate</TabsTrigger>

@@ -211,7 +211,14 @@ export function AdminDashboard({ companyId }: AdminDashboardProps) {
 	return (
 		<div className="flex flex-col p-8 gap-4 min-h-screen bg-[#121212]">
 			<div className="flex justify-between items-center gap-4">
-				<h1 className="text-4xl font-bold text-white">Admin Dashboard</h1>
+				<div className="flex items-center gap-4">
+					<img
+						src="/logo.svg"
+						alt="Logo"
+						className="w-12 h-12"
+					/>
+					<h1 className="text-4xl font-bold text-white">Admin Dashboard</h1>
+				</div>
 				<div className="flex items-center gap-3">
 					<span className="text-base text-[#E0E0E0]">
 						{isAdminView ? "Admin View" : "Member View"}
