@@ -8,7 +8,6 @@ import { ImageUpload } from "@/components/shared/ImageUpload";
 import { MarkdownRenderer } from "@/components/shared/MarkdownRenderer";
 import { useImageAnalysis } from "../hooks/useImageAnalysis";
 import { useTradeSetup } from "../hooks/useTradeSetup";
-import { getAnalysisSummary } from "../utils/analysisSummary";
 import { formatReasoning } from "../utils/formatReasoning";
 import { AnalysisSkeleton } from "@/components/shared/AnalysisSkeleton";
 import { TradeSetupSkeleton } from "@/components/shared/TradeSetupSkeleton";
@@ -245,7 +244,7 @@ export function MemberDashboard({ companyId }: MemberDashboardProps) {
 							<>
 								<div className="mt-4 p-4 bg-[#212121] rounded-lg border border-[#424242]">
 									<div className="flex justify-between items-center mb-2">
-										<h3 className="text-lg font-semibold text-white">Analysis Result</h3>
+										<h3 className="text-xl font-semibold text-white">Your Trade Analysis</h3>
 										<button
 											type="button"
 											onClick={() => setIsAnalysisExpanded(!isAnalysisExpanded)}
@@ -267,9 +266,10 @@ export function MemberDashboard({ companyId }: MemberDashboardProps) {
 									{isAnalysisExpanded ? (
 										<MarkdownRenderer content={analysis} />
 									) : (
-										<p className="text-sm text-[#E0E0E0] whitespace-pre-wrap">
-											{getAnalysisSummary(analysis)}
-										</p>
+										<div className="max-h-48 overflow-hidden relative">
+											<MarkdownRenderer content={analysis} />
+											<div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#212121] to-transparent pointer-events-none" />
+										</div>
 									)}
 								</div>
 							</>

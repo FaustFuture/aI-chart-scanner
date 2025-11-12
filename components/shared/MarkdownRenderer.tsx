@@ -46,7 +46,7 @@ export function MarkdownRenderer({
 						</ul>
 					),
 					ol: ({ children }) => (
-						<ol className="list-decimal list-inside text-sm text-[#E0E0E0] mb-2 ml-4 space-y-1">
+						<ol className="list-decimal list-outside text-sm text-[#E0E0E0] mb-2 ml-6 space-y-1">
 							{children}
 						</ol>
 					),
